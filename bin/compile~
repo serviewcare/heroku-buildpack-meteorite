@@ -104,8 +104,8 @@ echo "-----> Installing meteorite with npm"
 
 run_npm "install meteorite -g"
 =======
-run_npm "install meteorite@0.5.0 -g"
->>>>>>> Setting to use older meteorite.
+run_npm "install meteorite@0.5.1 -g"
+>>>>>>> Upgraded to 0.5.1 meteorite.
 echo "Meteorite installed" | indent
 
 METEOR_BUILD_DIR="$BUILD_DIR/.meteor/heroku_build"
