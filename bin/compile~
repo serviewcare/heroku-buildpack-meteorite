@@ -100,12 +100,8 @@ export CPPPATH="$INCLUDE_PATH"
 # install meteorite
 ############################################
 echo "-----> Installing meteorite with npm"
-<<<<<<< HEAD
 
 run_npm "install meteorite -g"
-=======
-run_npm "install meteorite@0.5.1 -g"
->>>>>>> Upgraded to 0.5.1 meteorite.
 echo "Meteorite installed" | indent
 
 METEOR_BUILD_DIR="$BUILD_DIR/.meteor/heroku_build"
@@ -125,11 +121,19 @@ echo "Meteor installed" | indent
 echo "Installing packages" | indent
 HOME="$BUILD_DIR" mrt install | indent
 echo "Building meteor bundle" | indent
+<<<<<<< HEAD
 HOME="$VENDORED_METEOR" "$VENDORED_METEOR"/.meteor/meteor bundle "$CACHE_DIR"/bundle.tar.gz 2>&1 | indent
 
 mkdir -p "$METEOR_BUILD_DIR"/app
 tar -zxf "$CACHE_DIR"/bundle.tar.gz --strip-components 1 -C "$METEOR_BUILD_DIR"/app
 rm "$CACHE_DIR"/bundle.tar.gz
+=======
+HOME="$BUILD_DIR" mrt bundle $CACHE_DIR/bundle.tar.gz --debug 2>&1 | indent
+echo "Bundled" | indent
+mkdir -p $METEOR_BUILD_DIR/app
+tar -zxf $CACHE_DIR/bundle.tar.gz --strip-components 1 -C $METEOR_BUILD_DIR/app
+rm $CACHE_DIR/bundle.tar.gz
+>>>>>>> Compile debug bundle.
 ############################################
 
 ############################################
