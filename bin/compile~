@@ -71,11 +71,11 @@ declare -A engine_versions
 declare -A engine_defaults
 declare -A engine_requests
 
-engine_defaults["node"]="0.8.24"
+engine_defaults["node"]="0.9.4"
 engine_versions["node"]=$(manifest_versions "nodejs")
 engine_requests["node"]=$(package_engine_version "node")
 
->>>>>>> Upgrade node to latest supported by meteor.
+>>>>>>> Try to intall official meteorite, and used newer node.
 echo "-----> Resolving engine versions"
 
 #TODO: Fix package.json loading
@@ -115,7 +115,10 @@ export CPPPATH="$INCLUDE_PATH"
 # install meteorite
 ############################################
 echo "-----> Installing meteorite with npm"
+<<<<<<< HEAD
 
+=======
+>>>>>>> Try to intall official meteorite, and used newer node.
 run_npm "install meteorite -g"
 echo "Meteorite installed" | indent
 
