@@ -71,11 +71,11 @@ declare -A engine_versions
 declare -A engine_defaults
 declare -A engine_requests
 
-engine_defaults["node"]="0.9.4"
+engine_defaults["node"]="0.9.1"
 engine_versions["node"]=$(manifest_versions "nodejs")
 engine_requests["node"]=$(package_engine_version "node")
 
->>>>>>> Try to intall official meteorite, and used newer node.
+>>>>>>> Trying different nodejs version because this one doesn't work/
 echo "-----> Resolving engine versions"
 
 #TODO: Fix package.json loading
