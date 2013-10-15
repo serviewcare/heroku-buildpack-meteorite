@@ -61,21 +61,6 @@ function package_download() {
   curl $package -s -o - | tar -zxf  - -C $location --strip 1
 }
 
-<<<<<<< HEAD
-=======
-bootstrap_node=$(mktmpdir bootstrap_node)
-package_download "nodejs" "0.4.7" $bootstrap_node
-
-# make some associative arrays
-declare -A engine_versions
-declare -A engine_defaults
-declare -A engine_requests
-
-engine_defaults["node"]="0.10.20"
-engine_versions["node"]=$(manifest_versions "nodejs")
-engine_requests["node"]=$(package_engine_version "node")
-
->>>>>>> Move back to 0.10.20
 echo "-----> Resolving engine versions"
 
 #TODO: Fix package.json loading
@@ -136,7 +121,12 @@ echo "Meteor installed" | indent
 echo "Installing packages" | indent
 HOME="$BUILD_DIR" mrt install | indent
 echo "Building meteor bundle" | indent
+<<<<<<< HEAD
 HOME="$VENDORED_METEOR" "$VENDORED_METEOR"/.meteor/meteor bundle "$CACHE_DIR"/bundle.tar.gz 2>&1 | indent
+=======
+
+HOME="$VENDORED_METEOR" "$VENDORED_METEOR"/.meteor/meteor bundle --debug "$CACHE_DIR"/bundle.tar.gz 2>&1 | indent
+>>>>>>> DEBUG MODE
 
 mkdir -p "$METEOR_BUILD_DIR"/app
 tar -zxf "$CACHE_DIR"/bundle.tar.gz --strip-components 1 -C "$METEOR_BUILD_DIR"/app
